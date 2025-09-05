@@ -1,6 +1,7 @@
 import * as React from "react"
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 import { X } from "lucide-react"
+import PropTypes from "prop-types"
 
 import { cn } from "@/lib/utils"
 
@@ -22,6 +23,13 @@ const DialogOverlay = React.forwardRef(({ className, ...props }, ref) => (
     {...props} />
 ))
 DialogOverlay.displayName = DialogPrimitive.Overlay.displayName
+DialogOverlay.propTypes = {
+  className: PropTypes.string,
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ])
+}
 
 const DialogContent = React.forwardRef(({ className, children, ...props }, ref) => (
   <DialogPortal>
@@ -43,6 +51,14 @@ const DialogContent = React.forwardRef(({ className, children, ...props }, ref) 
   </DialogPortal>
 ))
 DialogContent.displayName = DialogPrimitive.Content.displayName
+DialogContent.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node,
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ])
+}
 
 const DialogHeader = ({
   className,
@@ -53,6 +69,10 @@ const DialogHeader = ({
     {...props} />
 )
 DialogHeader.displayName = "DialogHeader"
+DialogHeader.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node
+}
 
 const DialogFooter = ({
   className,
@@ -63,6 +83,10 @@ const DialogFooter = ({
     {...props} />
 )
 DialogFooter.displayName = "DialogFooter"
+DialogFooter.propTypes = {
+  className: PropTypes.string,
+  children: PropTypes.node
+}
 
 const DialogTitle = React.forwardRef(({ className, ...props }, ref) => (
   <DialogPrimitive.Title
@@ -71,6 +95,13 @@ const DialogTitle = React.forwardRef(({ className, ...props }, ref) => (
     {...props} />
 ))
 DialogTitle.displayName = DialogPrimitive.Title.displayName
+DialogTitle.propTypes = {
+  className: PropTypes.string,
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ])
+}
 
 const DialogDescription = React.forwardRef(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
@@ -79,6 +110,13 @@ const DialogDescription = React.forwardRef(({ className, ...props }, ref) => (
     {...props} />
 ))
 DialogDescription.displayName = DialogPrimitive.Description.displayName
+DialogDescription.propTypes = {
+  className: PropTypes.string,
+  ref: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) })
+  ])
+}
 
 export {
   Dialog,
