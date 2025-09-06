@@ -20,8 +20,12 @@ const LandingPage = () => {
 
   return (
     <div className="flex flex-col items-center">
+      {/* <h2 className="my-10 sm:my-16 text-3xl sm:text-6xl lg:text-7xl text-white text-center font-extrabold">
+        One short link <br /> endless possibilities
+      </h2> */}
       <h2 className="my-10 sm:my-16 text-3xl sm:text-6xl lg:text-7xl text-white text-center font-extrabold">
-        The only URL Shortener <br /> you&rsquo;ll ever need! 👇
+        <span className="text-green-500">One short link </span><br />
+        endless possibilities
       </h2>
       <form
         onSubmit={handleShorten}
@@ -29,49 +33,75 @@ const LandingPage = () => {
       >
         <Input
           type="url"
-          placeholder="Enter your loooong URL"
+          placeholder="Enter long URL here"
           value={longUrl}
           onChange={(e) => setLongUrl(e.target.value)}
           className="h-full flex-1 py-4 px-4"
         />
-        <Button type="submit" className="h-full" variant="destructive">
-          Shorten!
+        <Button 
+          type="submit" 
+          className="h-full bg-green-600 hover:bg-green-700 text-white"
+          >
+        Shorten!
         </Button>
       </form>
       <img
-        src="/banner1.jpg" // replace with 2 in small screens
+        src="/banner1.jpeg" // replace with 2 in small screens
         className="w-full my-11 md:px-11"
       />
       <Accordion type="multiple" collapsible className="w-full md:px-11">
-        <AccordionItem value="item-1">
-          <AccordionTrigger>
-            How does the Trimrr URL shortener works?
-          </AccordionTrigger>
-          <AccordionContent>
-            When you enter a long URL, our system generates a shorter version of
-            that URL. This shortened URL redirects to the original long URL when
-            accessed.
-          </AccordionContent>
+    <AccordionItem value="item-5">
+    <AccordionTrigger>
+      Is SnipURL free to use?
+    </AccordionTrigger>
+    <AccordionContent>
+      Yes! SnipURL is completely free to use with all features included, no hidden
+      costs or upgrades required.
+    </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="item-2">
-          <AccordionTrigger>
-            Do I need an account to use the app?
-          </AccordionTrigger>
-          <AccordionContent>
-            Yes. Creating an account allows you to manage your URLs, view
-            analytics, and customize your short URLs.
-          </AccordionContent>
+        
+    <AccordionItem value="item-2">
+    <AccordionTrigger>
+      Do I need an account to use SnipURL?
+    </AccordionTrigger>
+    <AccordionContent>
+      Yes, signing up gives you full access to manage your links, track
+      performance, and personalize your shortened URLs.
+    </AccordionContent>
+    </AccordionItem>
+        
+    <AccordionItem value="item-1">
+    <AccordionTrigger>
+      How does the SnipURL work?
+    </AccordionTrigger>
+    <AccordionContent>
+      Simply paste in your long link, and SnipURL instantly creates a shorter,
+      cleaner version. When someone clicks your short link, they’re redirected
+      straight to the original full URL.
+    </AccordionContent>
         </AccordionItem>
-        <AccordionItem value="item-3">
-          <AccordionTrigger>
-            What analytics are available for my shortened URLs?
-          </AccordionTrigger>
-          <AccordionContent>
-            You can view the number of clicks, geolocation data of the clicks
-            and device types (mobile/desktop) for each of your shortened URLs.
-          </AccordionContent>
-        </AccordionItem>
-      </Accordion>
+        
+    <AccordionItem value="item-4">
+    <AccordionTrigger>
+      Can I customize my short URLs?
+    </AccordionTrigger>
+    <AccordionContent>
+      Absolutely! You can create branded short links that are easy to remember
+      and share, making your links look more professional.
+    </AccordionContent>
+    </AccordionItem>
+
+  <AccordionItem value="item-3">
+    <AccordionTrigger>
+      What kind of analytics can I see for my links?
+    </AccordionTrigger>
+    <AccordionContent>
+      You’ll get detailed insights including total clicks, visitor locations,
+      and whether your audience used mobile or desktop devices.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+ 
     </div>
   );
 };

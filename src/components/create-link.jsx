@@ -93,11 +93,11 @@ export function CreateLink() {
       }}
     >
       <DialogTrigger asChild>
-        <Button variant="destructive">Create New Link</Button>
+        <Button className="bg-green-600 hover:bg-green-700 text-white">Generate New Link</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
-          <DialogTitle className="font-bold text-2xl">Create New</DialogTitle>
+          <DialogTitle className="font-bold text-2xl text-blue-600">Generate Link</DialogTitle>
         </DialogHeader>
         {formValues?.longUrl && (
           <QRCode ref={ref} size={250} value={formValues?.longUrl} />
@@ -112,7 +112,7 @@ export function CreateLink() {
         {errors.title && <Error message={errors.title} />}
         <Input
           id="longUrl"
-          placeholder="Enter your Loooong URL"
+          placeholder="Enter Long URL"
           value={formValues.longUrl}
           onChange={handleChange}
         />
@@ -129,13 +129,13 @@ export function CreateLink() {
         {error && <Error message={errors.message} />}
         <DialogFooter className="sm:justify-start">
           <Button
-            type="button"
-            variant="destructive"
-            onClick={createNewLink}
-            disabled={loading}
-          >
-            {loading ? <BeatLoader size={10} color="white" /> : "Create"}
-          </Button>
+          type="button"
+          onClick={createNewLink}
+          disabled={loading}
+          className="bg-green-600 hover:bg-green-700 text-white"
+        >
+          {loading ? <BeatLoader size={10} color="white" /> : "Create"}
+        </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>
