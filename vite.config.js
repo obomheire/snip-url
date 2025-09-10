@@ -1,7 +1,9 @@
-/* eslint-disable no-undef */
-import {defineConfig} from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
+import { fileURLToPath } from "url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,7 +13,14 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  rules: {
-    "react/prop-types": 0,
+  server: {
+    historyApiFallback: true,
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
 });
